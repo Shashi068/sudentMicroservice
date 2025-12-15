@@ -37,4 +37,8 @@ public class StudentController {
     public void deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
     }
+    @PutMapping("/updateStudent")
+    public ResponseEntity<StudentDTO> updateStudentById(@RequestBody AddStudentRequestDTO addStudentRequestDTO){
+        return ResponseEntity.status(HttpStatus.CREATED).body(studentService.createStudent(addStudentRequestDTO));
+    }
 }
